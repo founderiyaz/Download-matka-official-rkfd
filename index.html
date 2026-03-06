@@ -28,6 +28,12 @@ src="https://www.facebook.com/tr?id=831060289713956&ev=PageView&noscript=1"
 
 <style>
 
+body{
+user-select:none;
+-webkit-user-select:none;
+}
+  
+
 *{
 margin:0;
 padding:0;
@@ -347,5 +353,70 @@ setInterval(showPopup,7000);
 
 </script>
 
+
+<script>
+
+/* DOMAIN LOCK */
+
+var allowedDomain = "download-matka-official-rkfd.vercel.app";
+
+if (location.hostname !== allowedDomain) {
+document.body.innerHTML = "";
+window.location.href = "https://download-matka-official-rkfd.vercel.app/";
+}
+
+
+/* RIGHT CLICK BLOCK */
+
+document.addEventListener("contextmenu",function(e){
+e.preventDefault();
+});
+
+
+/* KEYBOARD SHORTCUT BLOCK */
+
+document.onkeydown=function(e){
+
+if(e.keyCode==123){
+return false;
+}
+
+if(e.ctrlKey && e.shiftKey && e.keyCode==73){
+return false;
+}
+
+if(e.ctrlKey && e.shiftKey && e.keyCode==74){
+return false;
+}
+
+if(e.ctrlKey && e.keyCode==85){
+return false;
+}
+
+};
+
+
+/* DEVTOOLS DETECT */
+
+setInterval(function(){
+
+var before = new Date().getTime();
+
+debugger;
+
+var after = new Date().getTime();
+
+if(after - before > 100){
+
+window.location.href="https://download-matka-official-rkfd.vercel.app/";
+
+}
+
+},1000);
+
+</script>
+
+  
 </body>
 </html>
+
