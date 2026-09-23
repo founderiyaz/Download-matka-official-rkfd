@@ -1,848 +1,1285 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>App Download</title>
-  <meta name="description" content="Download the app and get started in seconds.">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
 
-  <!-- Meta Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '27681840918185148');
+fbq('track', 'PageView');
+</script>
 
-    fbq('init', '27681840918185148');
-    fbq('track', 'PageView');
-  </script>
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=27681840918185148&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
 
-  <noscript>
-    <img
-      height="1"
-      width="1"
-      style="display:none"
-      src="https://www.facebook.com/tr?id=27681840918185148&ev=PageView&noscript=1"
-      alt=""
-    >
-  </noscript>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --bg: #050816;
-      --bg-soft: #0a1020;
-      --card: rgba(255,255,255,.065);
-      --card-border: rgba(255,255,255,.10);
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #6366f1;
-      --accent-2: #06b6d4;
-      --success: #22c55e;
-      --radius: 22px;
-    }
+<title>Kalyan Matka App</title>
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
 
-    html {
-      scroll-behavior: smooth;
-    }
+/* =========================
+   RESET
+========================= */
 
-    body {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at 15% 5%, rgba(99,102,241,.18), transparent 32%),
-        radial-gradient(circle at 90% 20%, rgba(6,182,212,.12), transparent 30%),
-        linear-gradient(145deg, #020617, #07101f 55%, #020617);
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
-                   BlinkMacSystemFont, "Segoe UI", sans-serif;
-      padding: 18px 16px 100px;
-      overflow-x: hidden;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
 
-    a {
-      color: inherit;
-    }
+html{
+    scroll-behavior:smooth;
+}
 
-    .container {
-      width: min(100%, 520px);
-      margin: auto;
-    }
+body{
+    min-height:100vh;
+    color:#fff;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(34,197,94,.15),transparent 28%),
+        radial-gradient(circle at 85% 20%,rgba(99,102,241,.18),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(6,182,212,.10),transparent 35%),
+        #020617;
+    padding:18px 14px 105px;
+    overflow-x:hidden;
+    user-select:none;
+    -webkit-user-select:none;
+}
 
-    /* Background glow */
+/* =========================
+   CONTAINER
+========================= */
 
-    .glow {
-      position: fixed;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      filter: blur(90px);
-      opacity: .16;
-      pointer-events: none;
-      z-index: -1;
-    }
+.container{
+    width:100%;
+    max-width:520px;
+    margin:0 auto;
+}
 
-    .glow.one {
-      background: #6366f1;
-      top: 8%;
-      left: -100px;
-    }
+/* =========================
+   TOP BRAND
+========================= */
 
-    .glow.two {
-      background: #06b6d4;
-      bottom: 15%;
-      right: -100px;
-    }
+.brand{
+    text-align:center;
+    padding-top:8px;
+}
 
-    /* Header */
+.logo-wrap{
+    width:86px;
+    height:86px;
+    margin:0 auto 14px;
+    padding:4px;
+    border-radius:24px;
+    background:linear-gradient(135deg,#22c55e,#06b6d4,#6366f1);
+    box-shadow:
+        0 0 30px rgba(34,197,94,.18),
+        0 15px 40px rgba(0,0,0,.4);
+}
 
-    header {
-      text-align: center;
-      padding: 16px 0 8px;
-    }
+.logo{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    border-radius:20px;
+    background:#020617;
+}
 
-    .logo-wrap {
-      width: 92px;
-      height: 92px;
-      margin: 0 auto 18px;
-      padding: 4px;
-      border-radius: 26px;
-      background: linear-gradient(
-        135deg,
-        rgba(99,102,241,.9),
-        rgba(6,182,212,.8)
-      );
-      box-shadow:
-        0 18px 50px rgba(0,0,0,.35),
-        0 0 35px rgba(99,102,241,.15);
-    }
+.title{
+    font-size:30px;
+    line-height:1.15;
+    font-weight:800;
+    letter-spacing:-.7px;
+}
 
-    .logo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 22px;
-      display: block;
-      background: #111827;
-    }
+.title span{
+    background:linear-gradient(90deg,#4ade80,#22d3ee,#818cf8);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 7px 12px;
-      border: 1px solid rgba(255,255,255,.09);
-      background: rgba(255,255,255,.045);
-      border-radius: 999px;
-      color: #cbd5e1;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .04em;
-      margin-bottom: 13px;
-    }
+.subtitle{
+    margin-top:8px;
+    color:#94a3b8;
+    font-size:14px;
+}
 
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--success);
-      box-shadow: 0 0 12px rgba(34,197,94,.8);
-    }
+/* =========================
+   TRUST BADGE
+========================= */
 
-    h1 {
-      font-size: clamp(32px, 8vw, 46px);
-      line-height: 1.05;
-      letter-spacing: -.045em;
-      font-weight: 850;
-      margin-bottom: 13px;
-    }
+.trust{
+    margin-top:22px;
+    padding:12px 15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    border:1px solid rgba(34,197,94,.22);
+    background:rgba(34,197,94,.08);
+    border-radius:14px;
+    color:#bbf7d0;
+    font-size:13px;
+    font-weight:700;
+}
 
-    .gradient-text {
-      background: linear-gradient(90deg, #fff, #a5b4fc 45%, #67e8f9);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
+.trust-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#22c55e;
+    box-shadow:0 0 12px #22c55e;
+}
 
-    .subtitle {
-      color: var(--muted);
-      line-height: 1.65;
-      font-size: 15px;
-      max-width: 430px;
-      margin: auto;
-    }
+/* =========================
+   LIVE CARD
+========================= */
 
-    /* Main card */
+.live-card{
+    margin-top:12px;
+    padding:16px;
+    border-radius:18px;
+    background:rgba(15,23,42,.72);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
 
-    .hero-card {
-      position: relative;
-      margin-top: 25px;
-      padding: 22px;
-      border-radius: var(--radius);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.085),
-          rgba(255,255,255,.035)
-        );
-      border: 1px solid var(--card-border);
-      box-shadow:
-        0 25px 70px rgba(0,0,0,.3),
-        inset 0 1px rgba(255,255,255,.06);
-      backdrop-filter: blur(18px);
-      overflow: hidden;
-    }
+.live-left{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
 
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      width: 160px;
-      height: 160px;
-      right: -80px;
-      top: -80px;
-      border-radius: 50%;
-      background: rgba(99,102,241,.16);
-      filter: blur(20px);
-    }
+.live-icon{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(239,68,68,.12);
+    color:#f87171;
+}
 
-    .card-label {
-      color: #a5b4fc;
-      text-transform: uppercase;
-      font-size: 11px;
-      letter-spacing: .12em;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
+.live-label{
+    color:#94a3b8;
+    font-size:12px;
+}
 
-    .hero-card h2 {
-      font-size: 22px;
-      margin-bottom: 8px;
-    }
+.live-number{
+    margin-top:2px;
+    font-size:18px;
+    font-weight:800;
+}
 
-    .hero-card p {
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 14px;
-    }
+.live-status{
+    font-size:11px;
+    color:#4ade80;
+    background:rgba(34,197,94,.1);
+    padding:6px 9px;
+    border-radius:20px;
+}
 
-    /* CTA */
+/* =========================
+   MAIN DOWNLOAD CARD
+========================= */
 
-    .download-btn {
-      position: relative;
-      width: 100%;
-      min-height: 58px;
-      margin-top: 20px;
-      border: 0;
-      border-radius: 16px;
-      cursor: pointer;
-      color: #fff;
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: -.01em;
-      background:
-        linear-gradient(100deg, #4f46e5, #6366f1, #0891b2);
-      background-size: 200% 100%;
-      box-shadow:
-        0 15px 35px rgba(79,70,229,.28),
-        inset 0 1px rgba(255,255,255,.22);
-      transition: transform .2s ease, box-shadow .2s ease;
-      overflow: hidden;
-    }
+.download-card{
+    margin-top:18px;
+    padding:22px;
+    border-radius:24px;
+    position:relative;
+    overflow:hidden;
+    background:
+        linear-gradient(145deg,
+        rgba(30,41,59,.9),
+        rgba(15,23,42,.72));
+    border:1px solid rgba(255,255,255,.09);
+    box-shadow:0 20px 60px rgba(0,0,0,.28);
+}
 
-    .download-btn:hover {
-      transform: translateY(-2px);
-      box-shadow:
-        0 20px 42px rgba(79,70,229,.36),
+.download-card::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    top:-100px;
+    right:-80px;
+    border-radius:50%;
+    background:#22c55e;
+    opacity:.08;
+    filter:blur(20px);
+}
+
+.download-title{
+    font-size:20px;
+    font-weight:800;
+}
+
+.download-description{
+    margin-top:7px;
+    color:#94a3b8;
+    font-size:13px;
+    line-height:1.5;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.download-btn{
+    width:100%;
+    margin-top:18px;
+    border:0;
+    outline:0;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    padding:16px 18px;
+    border-radius:15px;
+    color:#fff;
+    font-size:17px;
+    font-weight:800;
+    background:linear-gradient(100deg,#16a34a,#22c55e,#06b6d4);
+    box-shadow:
+        0 12px 30px rgba(34,197,94,.22),
         inset 0 1px rgba(255,255,255,.25);
+    transition:.25s ease;
+}
+
+.download-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:
+        0 16px 35px rgba(34,197,94,.3),
+        inset 0 1px rgba(255,255,255,.25);
+}
+
+.download-btn:active{
+    transform:scale(.98);
+}
+
+.download-btn.preparing{
+    background:linear-gradient(100deg,#334155,#475569);
+    cursor:default;
+    box-shadow:none;
+}
+
+.download-btn.success{
+    background:linear-gradient(100deg,#15803d,#16a34a);
+}
+
+.btn-main{
+    display:block;
+}
+
+.btn-sub{
+    display:block;
+    margin-top:3px;
+    font-size:11px;
+    font-weight:500;
+    opacity:.8;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:9px;
+    margin-top:14px;
+}
+
+.feature{
+    padding:12px 6px;
+    text-align:center;
+    border-radius:14px;
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.feature-icon{
+    font-size:18px;
+}
+
+.feature-text{
+    margin-top:5px;
+    color:#cbd5e1;
+    font-size:10px;
+}
+
+/* =========================
+   GENERAL CARD
+========================= */
+
+.card{
+    margin-top:16px;
+    padding:18px;
+    border-radius:22px;
+    background:rgba(15,23,42,.67);
+    border:1px solid rgba(255,255,255,.07);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+}
+
+.section-heading{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.section-title{
+    font-size:17px;
+    font-weight:800;
+}
+
+.section-tag{
+    font-size:10px;
+    color:#facc15;
+    background:rgba(250,204,21,.08);
+    border:1px solid rgba(250,204,21,.14);
+    padding:5px 8px;
+    border-radius:20px;
+}
+
+/* =========================
+   GAME RATES
+========================= */
+
+.rate-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:13px 0;
+    border-bottom:1px solid rgba(255,255,255,.055);
+}
+
+.rate-row:last-child{
+    border-bottom:0;
+    padding-bottom:2px;
+}
+
+.rate-name{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    color:#cbd5e1;
+    font-size:13px;
+}
+
+.rate-icon{
+    width:28px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:9px;
+    background:rgba(99,102,241,.1);
+    font-size:12px;
+}
+
+.rate-value{
+    color:#4ade80;
+    font-size:13px;
+    font-weight:800;
+}
+
+/* =========================
+   ACTIVITY
+========================= */
+
+.activity-box{
+    height:155px;
+    overflow:hidden;
+    position:relative;
+}
+
+.activity-list{
+    animation:activityScroll 16s linear infinite;
+}
+
+.activity-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,.045);
+}
+
+.activity-icon{
+    width:31px;
+    height:31px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    background:rgba(34,197,94,.1);
+    color:#4ade80;
+    font-size:13px;
+}
+
+.activity-text{
+    font-size:12px;
+    color:#cbd5e1;
+}
+
+.activity-note{
+    font-size:9px;
+    color:#64748b;
+    margin-top:2px;
+}
+
+@keyframes activityScroll{
+    0%{
+        transform:translateY(0);
+    }
+    100%{
+        transform:translateY(-50%);
+    }
+}
+
+/* =========================
+   DOWNLOAD NOTIFICATION
+========================= */
+
+.popup{
+    position:fixed;
+    left:14px;
+    bottom:91px;
+    z-index:1000;
+    width:min(330px,calc(100% - 28px));
+    padding:12px;
+    display:none;
+    align-items:center;
+    gap:11px;
+    border-radius:16px;
+    background:rgba(15,23,42,.94);
+    border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 15px 45px rgba(0,0,0,.45);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    animation:popupIn .4s ease;
+}
+
+.popup-icon{
+    width:37px;
+    height:37px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    background:rgba(34,197,94,.12);
+    color:#4ade80;
+}
+
+.popup-content{
+    min-width:0;
+}
+
+.popup-title{
+    font-size:12px;
+    font-weight:800;
+    color:#f8fafc;
+}
+
+.popup-message{
+    margin-top:2px;
+    font-size:10px;
+    color:#94a3b8;
+    line-height:1.4;
+}
+
+.popup-demo{
+    display:inline-block;
+    margin-top:4px;
+    color:#64748b;
+    font-size:8px;
+}
+
+@keyframes popupIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   STICKY CTA
+========================= */
+
+.sticky-download{
+    position:fixed;
+    z-index:999;
+    bottom:10px;
+    left:10px;
+    right:10px;
+}
+
+.sticky-download button{
+    width:100%;
+    border:1px solid rgba(255,255,255,.12);
+    padding:14px;
+    border-radius:15px;
+    color:white;
+    background:rgba(34,197,94,.94);
+    backdrop-filter:blur(12px);
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.4),
+        0 0 25px rgba(34,197,94,.15);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    color:#64748b;
+    font-size:10px;
+    line-height:1.6;
+    margin-top:20px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:380px){
+
+    body{
+        padding-left:10px;
+        padding-right:10px;
     }
 
-    .download-btn:active {
-      transform: translateY(0);
+    .title{
+        font-size:26px;
     }
 
-    .download-btn.loading {
-      cursor: wait;
-      opacity: .9;
+    .download-card,
+    .card{
+        padding:15px;
     }
 
-    .btn-content {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+    .features{
+        gap:6px;
     }
 
-    .spinner {
-      width: 19px;
-      height: 19px;
-      border: 2px solid rgba(255,255,255,.3);
-      border-top-color: #fff;
-      border-radius: 50%;
-      animation: spin .8s linear infinite;
-      display: none;
+    .feature-text{
+        font-size:9px;
     }
+}
 
-    .loading .spinner {
-      display: block;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .download-note {
-      text-align: center;
-      color: #64748b;
-      font-size: 11px;
-      margin-top: 10px;
-    }
-
-    /* Feature grid */
-
-    .section {
-      margin-top: 18px;
-    }
-
-    .section-heading {
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 11px;
-    }
-
-    .feature {
-      padding: 16px;
-      border-radius: 17px;
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      backdrop-filter: blur(12px);
-      transition: transform .2s ease, border-color .2s ease;
-    }
-
-    .feature:hover {
-      transform: translateY(-3px);
-      border-color: rgba(129,140,248,.28);
-    }
-
-    .feature-icon {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      margin-bottom: 11px;
-      background: rgba(99,102,241,.13);
-      font-size: 18px;
-    }
-
-    .feature strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
-
-    .feature span {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    /* Steps */
-
-    .steps {
-      padding: 19px;
-      border-radius: var(--radius);
-      background: var(--card);
-      border: 1px solid var(--card-border);
-    }
-
-    .step {
-      display: flex;
-      gap: 13px;
-      align-items: flex-start;
-    }
-
-    .step + .step {
-      margin-top: 17px;
-    }
-
-    .number {
-      flex: 0 0 31px;
-      width: 31px;
-      height: 31px;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      background: rgba(99,102,241,.15);
-      color: #c7d2fe;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .step strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.5;
-    }
-
-    /* FAQ */
-
-    .faq {
-      border: 1px solid var(--card-border);
-      border-radius: 15px;
-      background: rgba(255,255,255,.04);
-      overflow: hidden;
-    }
-
-    .faq + .faq {
-      margin-top: 8px;
-    }
-
-    .faq button {
-      width: 100%;
-      border: 0;
-      background: transparent;
-      color: white;
-      padding: 16px;
-      text-align: left;
-      cursor: pointer;
-      font-weight: 700;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .faq button span:last-child {
-      color: #818cf8;
-      transition: transform .2s ease;
-    }
-
-    .faq.open button span:last-child {
-      transform: rotate(45deg);
-    }
-
-    .answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .3s ease;
-    }
-
-    .answer p {
-      padding: 0 16px 16px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    /* Footer */
-
-    footer {
-      text-align: center;
-      padding: 26px 10px 10px;
-      color: #64748b;
-      font-size: 11px;
-      line-height: 1.6;
-    }
-
-    /* Sticky CTA */
-
-    .sticky {
-      position: fixed;
-      z-index: 100;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      max-width: 496px;
-      margin: auto;
-      padding: 8px;
-      border-radius: 17px;
-      background: rgba(5,8,22,.78);
-      border: 1px solid rgba(255,255,255,.1);
-      box-shadow: 0 15px 45px rgba(0,0,0,.5);
-      backdrop-filter: blur(18px);
-    }
-
-    .sticky button {
-      width: 100%;
-      min-height: 48px;
-      border: 0;
-      border-radius: 12px;
-      color: #fff;
-      background: linear-gradient(100deg,#4f46e5,#0891b2);
-      font-size: 15px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    /* Toast */
-
-    .toast {
-      position: fixed;
-      z-index: 200;
-      left: 50%;
-      bottom: 88px;
-      transform: translate(-50%, 20px);
-      width: min(calc(100% - 30px), 430px);
-      padding: 13px 15px;
-      border-radius: 13px;
-      background: rgba(15,23,42,.94);
-      border: 1px solid rgba(255,255,255,.1);
-      color: #e2e8f0;
-      font-size: 13px;
-      text-align: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: .3s ease;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-
-    @media (min-width: 700px) {
-      body {
-        padding-top: 40px;
-      }
-
-      .sticky {
-        display: none;
-      }
-
-      .hero-card {
-        padding: 28px;
-      }
-    }
-
-    @media (max-width: 390px) {
-      h1 {
-        font-size: 31px;
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <div class="glow one"></div>
-  <div class="glow two"></div>
+<div class="container">
 
-  <main class="container">
+    <!-- BRAND -->
 
-    <header>
-      <div class="logo-wrap">
-        <img
-          class="logo"
-          src="https://telegram-ads.riyazshaikh.com/wp-content/uploads/2026/03/mtk-rk.avif"
-          alt="App logo"
+    <div class="brand">
+
+        <div class="logo-wrap">
+            <img
+                src="https://telegram-ads.riyazshaikh.com/wp-content/uploads/2026/03/mtk-rk.avif"
+                class="logo"
+                alt="Kalyan Matka">
+        </div>
+
+        <h1 class="title">
+            Kalyan <span>Matka</span>
+        </h1>
+
+        <p class="subtitle">
+            Download the app and explore the platform
+        </p>
+
+    </div>
+
+
+    <!-- TRUST -->
+
+    <div class="trust">
+        <span class="trust-dot"></span>
+        Trusted platform • Quick access
+    </div>
+
+
+    <!-- LIVE STATUS -->
+
+    <div class="live-card">
+
+        <div class="live-left">
+
+            <div class="live-icon">
+                🔴
+            </div>
+
+            <div>
+                <div class="live-label">
+                    Current activity
+                </div>
+
+                <div class="live-number">
+                    <span id="liveUsers">52253</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="live-status">
+            ● Online
+        </div>
+
+    </div>
+
+
+    <!-- DOWNLOAD CARD -->
+
+    <div class="download-card">
+
+        <div class="download-title">
+            Get the Kalyan Matka App
+        </div>
+
+        <div class="download-description">
+            Tap the button below to prepare your download.
+            The download will begin after a short confirmation countdown.
+        </div>
+
+
+        <button
+            class="download-btn"
+            id="downloadBtn"
+            onclick="startDownload(this)"
         >
-      </div>
 
-      <div class="eyebrow">
-        <span class="eyebrow-dot"></span>
-        READY TO GET STARTED
-      </div>
+            <span class="btn-main" id="btnMain">
+                ⬇ Download App
+            </span>
 
-      <h1>
-        Your next experience
-        <span class="gradient-text">starts here.</span>
-      </h1>
+            <span class="btn-sub" id="btnSub">
+                APK • Free Download
+            </span>
 
-      <p class="subtitle">
-        Get the app and enjoy a clean, fast and convenient experience
-        right from your device.
-      </p>
-    </header>
-
-    <section class="hero-card">
-
-      <div class="card-label">Quick access</div>
-
-      <h2>Get the app in seconds</h2>
-
-      <p>
-        Follow the simple steps below and continue when the download
-        preparation is complete.
-      </p>
-
-      <button
-        class="download-btn"
-        id="downloadBtn"
-        type="button"
-      >
-        <span class="btn-content">
-          <span class="spinner"></span>
-          <span id="btnText">Prepare Download</span>
-        </span>
-      </button>
-
-      <div class="download-note">
-        Your download will begin after the preparation step.
-      </div>
-
-    </section>
-
-    <section class="section">
-
-      <h2 class="section-heading">Why use the app?</h2>
-
-      <div class="features">
-
-        <div class="feature">
-          <div class="feature-icon">⚡</div>
-          <strong>Quick access</strong>
-          <span>Designed for a smooth and straightforward experience.</span>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">📱</div>
-          <strong>Mobile friendly</strong>
-          <span>Built to work comfortably across modern mobile devices.</span>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">✨</div>
-          <strong>Clean interface</strong>
-          <span>Simple navigation without unnecessary clutter.</span>
-        </div>
-
-        <div class="feature">
-          <div class="feature-icon">🔒</div>
-          <strong>Clear experience</strong>
-          <span>Important actions and information are easy to find.</span>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section">
-
-      <h2 class="section-heading">How it works</h2>
-
-      <div class="steps">
-
-        <div class="step">
-          <div class="number">1</div>
-          <div>
-            <strong>Start preparation</strong>
-            <p>Tap the button above to begin the short preparation step.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="number">2</div>
-          <div>
-            <strong>Wait a few seconds</strong>
-            <p>The button will update automatically when preparation is complete.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="number">3</div>
-          <div>
-            <strong>Continue</strong>
-            <p>Use the download button to proceed to the available app file.</p>
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-    <section class="section">
-
-      <h2 class="section-heading">Frequently asked</h2>
-
-      <div class="faq">
-        <button type="button">
-          <span>How long does preparation take?</span>
-          <span>＋</span>
         </button>
-        <div class="answer">
-          <p>
-            The preparation state lasts approximately three seconds before
-            the continue option becomes available.
-          </p>
-        </div>
-      </div>
 
-      <div class="faq">
-        <button type="button">
-          <span>Can I use the page on mobile?</span>
-          <span>＋</span>
-        </button>
-        <div class="answer">
-          <p>
-            Yes. The layout is responsive and optimized for phones,
-            tablets and desktop screens.
-          </p>
-        </div>
-      </div>
 
-      <div class="faq">
-        <button type="button">
-          <span>Where does the button lead?</span>
-          <span>＋</span>
-        </button>
-        <div class="answer">
-          <p>
-            After preparation, the button opens the configured download
-            destination.
-          </p>
-        </div>
-      </div>
+        <div class="features">
 
-    </section>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-text">Quick Access</div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">📱</div>
+                <div class="feature-text">Android App</div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-text">Direct Download</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- GAME RATES -->
+
+    <div class="card">
+
+        <div class="section-heading">
+
+            <div class="section-title">
+                🎯 Game Rates
+            </div>
+
+            <div class="section-tag">
+                RATES
+            </div>
+
+        </div>
+
+
+        <div class="rate-row">
+            <div class="rate-name">
+                <span class="rate-icon">01</span>
+                Single Digit
+            </div>
+            <div class="rate-value">10 × 100</div>
+        </div>
+
+        <div class="rate-row">
+            <div class="rate-name">
+                <span class="rate-icon">02</span>
+                Jodi Digit
+            </div>
+            <div class="rate-value">10 × 1000</div>
+        </div>
+
+        <div class="rate-row">
+            <div class="rate-name">
+                <span class="rate-icon">03</span>
+                Single Panna
+            </div>
+            <div class="rate-value">10 × 1500</div>
+        </div>
+
+        <div class="rate-row">
+            <div class="rate-name">
+                <span class="rate-icon">04</span>
+                Double Panna
+            </div>
+            <div class="rate-value">10 × 3000</div>
+        </div>
+
+        <div class="rate-row">
+            <div class="rate-name">
+                <span class="rate-icon">05</span>
+                Triple Panna
+            </div>
+            <div class="rate-value">10 × 7000</div>
+        </div>
+
+        <div class="rate-row">
+            <div class="rate-name">
+                <span class="rate-icon">06</span>
+                Half Sangam
+            </div>
+            <div class="rate-value">10 × 10000</div>
+        </div>
+
+        <div class="rate-row">
+            <div class="rate-name">
+                <span class="rate-icon">07</span>
+                Full Sangam
+            </div>
+            <div class="rate-value">10 × 100000</div>
+        </div>
+
+    </div>
+
+
+    <!-- ACTIVITY -->
+
+    <div class="card">
+
+        <div class="section-heading">
+
+            <div class="section-title">
+                🔔 Recent Activity
+            </div>
+
+            <div class="section-tag">
+                DEMO
+            </div>
+
+        </div>
+
+
+        <div class="activity-box">
+
+            <div class="activity-list">
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">＋</div>
+
+                    <div class="activity-text">
+                        Ami*** deposited ₹601
+                        <div class="activity-note">
+                            Illustrative activity
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">＋</div>
+
+                    <div class="activity-text">
+                        Man*** deposited ₹9647
+                        <div class="activity-note">
+                            Illustrative activity
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">✓</div>
+
+                    <div class="activity-text">
+                        Ami*** withdrawal ₹24661
+                        <div class="activity-note">
+                            Illustrative activity
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">✓</div>
+
+                    <div class="activity-text">
+                        Roh*** withdrawal ₹21308
+                        <div class="activity-note">
+                            Illustrative activity
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">✓</div>
+
+                    <div class="activity-text">
+                        Ami*** withdrawal ₹8879
+                        <div class="activity-note">
+                            Illustrative activity
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">＋</div>
+
+                    <div class="activity-text">
+                        Raj*** deposited ₹1120
+                        <div class="activity-note">
+                            Illustrative activity
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">✓</div>
+
+                    <div class="activity-text">
+                        Dev*** withdrawal ₹17890
+                        <div class="activity-note">
+                            Illustrative activity
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Duplicate for smooth loop -->
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">＋</div>
+
+                    <div class="activity-text">
+                        Ami*** deposited ₹601
+                        <div class="activity-note">
+                            Illustrative activity
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">＋</div>
+
+                    <div class="activity-text">
+                        Man*** deposited ₹9647
+                        <div class="activity-note">
+                            Illustrative activity
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">✓</div>
+
+                    <div class="activity-text">
+                        Roh*** withdrawal ₹21308
+                        <div class="activity-note">
+                            Illustrative activity
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 
     <footer>
-      Please review the app and download information before continuing.
-      <br>
-      © 2026 App Download
+        © Kalyan Matka<br>
+        Please use responsibly. Entertainment purpose only.
     </footer>
 
-  </main>
+</div>
 
-  <!-- Mobile sticky CTA -->
-  <div class="sticky">
-    <button id="stickyBtn" type="button">
-      Prepare Download
+
+<!-- POPUP -->
+
+<div class="popup" id="downloadPopup">
+
+    <div class="popup-icon">
+        ✓
+    </div>
+
+    <div class="popup-content">
+
+        <div class="popup-title">
+            Download Activity
+        </div>
+
+        <div class="popup-message" id="popupMessage">
+            Preparing...
+        </div>
+
+        <span class="popup-demo">
+            Illustrative notification
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- STICKY DOWNLOAD -->
+
+<div class="sticky-download">
+
+    <button onclick="startDownload(document.getElementById('stickyBtn'))"
+            id="stickyBtn">
+
+        ⬇ Download App
+
     </button>
-  </div>
 
-  <div class="toast" id="toast"></div>
+</div>
 
-  <script>
-    /*
-      Configure your legitimate download destination here.
-      Replace this URL with the appropriate destination for your app.
-    */
-    const DOWNLOAD_URL = "#";
 
-    const downloadBtn = document.getElementById("downloadBtn");
-    const stickyBtn = document.getElementById("stickyBtn");
-    const btnText = document.getElementById("btnText");
-    const toast = document.getElementById("toast");
+<script>
 
-    let isReady = false;
-    let isPreparing = false;
+/* ==========================================
+   DOWNLOAD CONFIG
+========================================== */
 
-    function showToast(message) {
-      toast.textContent = message;
-      toast.classList.add("show");
+const DOWNLOAD_URL =
+    "https://kalyan-matka.online/kalyan.apk";
 
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 2500);
-    }
+let downloadRunning = false;
 
-    function prepareDownload() {
-      if (isPreparing) return;
 
-      if (isReady) {
-        if (DOWNLOAD_URL === "#") {
-          showToast("Please configure the download destination first.");
-          return;
-        }
+/* ==========================================
+   DOWNLOAD FLOW
+========================================== */
 
-        window.location.href = DOWNLOAD_URL;
+function startDownload(button){
+
+    if(downloadRunning){
         return;
-      }
-
-      isPreparing = true;
-
-      downloadBtn.classList.add("loading");
-      downloadBtn.disabled = true;
-
-      btnText.textContent = "Preparing…";
-      stickyBtn.textContent = "Preparing…";
-      stickyBtn.disabled = true;
-
-      let seconds = 3;
-
-      const timer = setInterval(() => {
-        seconds--;
-
-        if (seconds > 0) {
-          btnText.textContent = `Preparing… ${seconds}`;
-          stickyBtn.textContent = `Preparing… ${seconds}`;
-        }
-
-        if (seconds === 0) {
-          clearInterval(timer);
-
-          isPreparing = false;
-          isReady = true;
-
-          downloadBtn.classList.remove("loading");
-          downloadBtn.disabled = false;
-
-          btnText.textContent = "Download Ready →";
-          stickyBtn.textContent = "Download Ready →";
-          stickyBtn.disabled = false;
-
-          showToast("Download is ready to continue.");
-        }
-      }, 1000);
     }
 
-    downloadBtn.addEventListener("click", prepareDownload);
-    stickyBtn.addEventListener("click", prepareDownload);
+    downloadRunning = true;
+
+    const mainBtn =
+        document.getElementById("downloadBtn");
+
+    const stickyBtn =
+        document.getElementById("stickyBtn");
+
+    const btnMain =
+        document.getElementById("btnMain");
+
+    const btnSub =
+        document.getElementById("btnSub");
 
 
-    /* FAQ */
+    if(mainBtn){
+        mainBtn.classList.add("preparing");
+    }
 
-    document.querySelectorAll(".faq button").forEach(button => {
 
-      button.addEventListener("click", () => {
+    if(stickyBtn){
+        stickyBtn.disabled = true;
+        stickyBtn.style.opacity = ".7";
+    }
 
-        const faq = button.parentElement;
-        const answer = faq.querySelector(".answer");
 
-        const isOpen = faq.classList.contains("open");
+    let count = 3;
 
-        document.querySelectorAll(".faq").forEach(item => {
-          item.classList.remove("open");
-          item.querySelector(".answer").style.maxHeight = null;
-        });
 
-        if (!isOpen) {
-          faq.classList.add("open");
-          answer.style.maxHeight = answer.scrollHeight + "px";
-        }
+    if(btnMain){
+        btnMain.innerText =
+            "Preparing download...";
+    }
 
-      });
 
-    });
-  </script>
+    if(btnSub){
+        btnSub.innerText =
+            "Please wait " + count + " seconds";
+    }
+
+
+    if(stickyBtn){
+        stickyBtn.innerText =
+            "Preparing download... " + count;
+    }
+
+
+    const countdown =
+        setInterval(()=>{
+
+            count--;
+
+
+            if(count > 0){
+
+                if(btnMain){
+                    btnMain.innerText =
+                        "Preparing download...";
+                }
+
+                if(btnSub){
+                    btnSub.innerText =
+                        "Please wait " + count + " seconds";
+                }
+
+                if(stickyBtn){
+                    stickyBtn.innerText =
+                        "Preparing download... " + count;
+                }
+
+            }else{
+
+                clearInterval(countdown);
+
+                if(btnMain){
+                    btnMain.innerText =
+                        "✓ Download Starting";
+                }
+
+                if(btnSub){
+                    btnSub.innerText =
+                        "Opening APK download...";
+                }
+
+                if(stickyBtn){
+                    stickyBtn.innerText =
+                        "✓ Download Starting";
+                }
+
+                if(mainBtn){
+                    mainBtn.classList.remove("preparing");
+                    mainBtn.classList.add("success");
+                }
+
+
+                /*
+                 * Start download only after
+                 * the complete 3-second flow.
+                 */
+
+                const link =
+                    document.createElement("a");
+
+                link.href = DOWNLOAD_URL;
+                link.download = "kalyan.apk";
+
+                document.body.appendChild(link);
+
+                link.click();
+
+                link.remove();
+
+
+                /*
+                 * Reset buttons after a short delay.
+                 */
+
+                setTimeout(()=>{
+
+                    downloadRunning = false;
+
+                    if(mainBtn){
+
+                        mainBtn.classList.remove("success");
+
+                        btnMain.innerText =
+                            "⬇ Download App";
+
+                        btnSub.innerText =
+                            "APK • Free Download";
+                    }
+
+
+                    if(stickyBtn){
+
+                        stickyBtn.disabled = false;
+
+                        stickyBtn.style.opacity = "1";
+
+                        stickyBtn.innerText =
+                            "⬇ Download App";
+                    }
+
+                },3500);
+
+            }
+
+        },1000);
+
+}
+
+
+/* ==========================================
+   LIVE ACTIVITY DISPLAY
+========================================== */
+
+const users =
+    document.getElementById("liveUsers");
+
+setInterval(()=>{
+
+    const number =
+        52000 + Math.floor(Math.random() * 5000);
+
+    users.innerText =
+        number.toLocaleString("en-IN");
+
+},2500);
+
+
+/* ==========================================
+   DEMO NOTIFICATION
+========================================== */
+
+const names = [
+    "Rahul",
+    "Amit",
+    "Rohit",
+    "Vikas",
+    "Sanjay",
+    "Deepak",
+    "Ankit",
+    "Manish",
+    "Ajay"
+];
+
+const cities = [
+    "Delhi",
+    "Mumbai",
+    "Lucknow",
+    "Patna",
+    "Jaipur",
+    "Indore",
+    "Bhopal",
+    "Surat"
+];
+
+const popup =
+    document.getElementById("downloadPopup");
+
+const popupMessage =
+    document.getElementById("popupMessage");
+
+
+function showPopup(){
+
+    const name =
+        names[Math.floor(
+            Math.random() * names.length
+        )];
+
+    const city =
+        cities[Math.floor(
+            Math.random() * cities.length
+        )];
+
+
+    popupMessage.innerText =
+        name + " from " + city +
+        " viewed the download page.";
+
+
+    popup.style.display =
+        "flex";
+
+
+    setTimeout(()=>{
+
+        popup.style.display =
+            "none";
+
+    },3500);
+
+}
+
+
+/*
+ * First notification after page load,
+ * then repeat periodically.
+ */
+
+setTimeout(showPopup,4000);
+
+setInterval(showPopup,9000);
+
+</script>
 
 </body>
 </html>
-```
