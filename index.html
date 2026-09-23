@@ -1,360 +1,848 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '27681840918185148');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=27681840918185148&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <title>App Download</title>
+  <meta name="description" content="Download the app and get started in seconds.">
 
-  
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
 
-<title>Kalyan Matka App</title>
+    fbq('init', '27681840918185148');
+    fbq('track', 'PageView');
+  </script>
 
-<style>
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src="https://www.facebook.com/tr?id=27681840918185148&ev=PageView&noscript=1"
+      alt=""
+    >
+  </noscript>
 
-body{
-user-select:none;
--webkit-user-select:none;
-}
-  
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0a1020;
+      --card: rgba(255,255,255,.065);
+      --card-border: rgba(255,255,255,.10);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #6366f1;
+      --accent-2: #06b6d4;
+      --success: #22c55e;
+      --radius: 22px;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body{
-background:linear-gradient(135deg,#020617,#0f172a);
-color:white;
-padding:15px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* Container */
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 5%, rgba(99,102,241,.18), transparent 32%),
+        radial-gradient(circle at 90% 20%, rgba(6,182,212,.12), transparent 30%),
+        linear-gradient(145deg, #020617, #07101f 55%, #020617);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+                   BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 18px 16px 100px;
+      overflow-x: hidden;
+    }
 
-.container{
-max-width:500px;
-margin:auto;
-}
+    a {
+      color: inherit;
+    }
 
-/* Logo */
+    .container {
+      width: min(100%, 520px);
+      margin: auto;
+    }
 
-.logo{
-width:95px;
-display:block;
-margin:auto;
-margin-top:10px;
-}
+    /* Background glow */
 
-/* Title */
+    .glow {
+      position: fixed;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: .16;
+      pointer-events: none;
+      z-index: -1;
+    }
 
-.title{
-text-align:center;
-font-size:26px;
-font-weight:bold;
-margin-top:10px;
-}
+    .glow.one {
+      background: #6366f1;
+      top: 8%;
+      left: -100px;
+    }
 
-.subtitle{
-text-align:center;
-color:#9ca3af;
-margin-bottom:15px;
-}
+    .glow.two {
+      background: #06b6d4;
+      bottom: 15%;
+      right: -100px;
+    }
 
-/* Card */
+    /* Header */
 
-.card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-border-radius:16px;
-padding:15px;
-margin-top:15px;
-border:1px solid rgba(255,255,255,0.08);
-}
+    header {
+      text-align: center;
+      padding: 16px 0 8px;
+    }
 
-/* Trusted */
+    .logo-wrap {
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 18px;
+      padding: 4px;
+      border-radius: 26px;
+      background: linear-gradient(
+        135deg,
+        rgba(99,102,241,.9),
+        rgba(6,182,212,.8)
+      );
+      box-shadow:
+        0 18px 50px rgba(0,0,0,.35),
+        0 0 35px rgba(99,102,241,.15);
+    }
 
-.trust{
-background:#16a34a;
-text-align:center;
-font-weight:bold;
-border-radius:40px;
-padding:10px;
-}
+    .logo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+      display: block;
+      background: #111827;
+    }
 
-/* Live */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.045);
+      border-radius: 999px;
+      color: #cbd5e1;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      margin-bottom: 13px;
+    }
 
-.live{
-text-align:center;
-font-size:18px;
-}
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 12px rgba(34,197,94,.8);
+    }
 
-.live span{
-color:#22c55e;
-font-size:22px;
-font-weight:bold;
-}
+    h1 {
+      font-size: clamp(32px, 8vw, 46px);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+      font-weight: 850;
+      margin-bottom: 13px;
+    }
 
-/* Download Button */
+    .gradient-text {
+      background: linear-gradient(90deg, #fff, #a5b4fc 45%, #67e8f9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-.download{
-display:block;
-text-align:center;
-padding:16px;
-margin-top:20px;
-border-radius:14px;
-font-weight:bold;
-text-decoration:none;
-color:white;
-font-size:18px;
-background:linear-gradient(270deg,#22c55e,#06b6d4,#6366f1);
-background-size:600% 600%;
-animation:gradientMove 6s ease infinite;
-box-shadow:0 10px 25px rgba(0,0,0,0.5);
-}
+    .subtitle {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 15px;
+      max-width: 430px;
+      margin: auto;
+    }
 
-@keyframes gradientMove{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
-}
+    /* Main card */
 
-/* Section */
+    .hero-card {
+      position: relative;
+      margin-top: 25px;
+      padding: 22px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.085),
+          rgba(255,255,255,.035)
+        );
+      border: 1px solid var(--card-border);
+      box-shadow:
+        0 25px 70px rgba(0,0,0,.3),
+        inset 0 1px rgba(255,255,255,.06);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+    }
 
-.section-title{
-text-align:center;
-color:#facc15;
-margin-bottom:10px;
-}
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      right: -80px;
+      top: -80px;
+      border-radius: 50%;
+      background: rgba(99,102,241,.16);
+      filter: blur(20px);
+    }
 
-/* Game table */
+    .card-label {
+      color: #a5b4fc;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: .12em;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
 
-.table-row{
-display:flex;
-justify-content:space-between;
-padding:10px 0;
-border-bottom:1px solid rgba(255,255,255,0.06);
-}
+    .hero-card h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
 
-.rate{
-color:#22c55e;
-font-weight:bold;
-}
+    .hero-card p {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
 
-/* Activity */
+    /* CTA */
 
-.activity{
-height:120px;
-overflow:hidden;
-position:relative;
-}
+    .download-btn {
+      position: relative;
+      width: 100%;
+      min-height: 58px;
+      margin-top: 20px;
+      border: 0;
+      border-radius: 16px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      background:
+        linear-gradient(100deg, #4f46e5, #6366f1, #0891b2);
+      background-size: 200% 100%;
+      box-shadow:
+        0 15px 35px rgba(79,70,229,.28),
+        inset 0 1px rgba(255,255,255,.22);
+      transition: transform .2s ease, box-shadow .2s ease;
+      overflow: hidden;
+    }
 
-.activity-list{
-position:absolute;
-width:100%;
-animation:scrollActivity 12s linear infinite;
-}
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 20px 42px rgba(79,70,229,.36),
+        inset 0 1px rgba(255,255,255,.25);
+    }
 
-.activity p{
-padding:6px 0;
-color:#d1d5db;
-font-size:14px;
-}
+    .download-btn:active {
+      transform: translateY(0);
+    }
 
-@keyframes scrollActivity{
+    .download-btn.loading {
+      cursor: wait;
+      opacity: .9;
+    }
 
-0%{transform:translateY(0)}
-100%{transform:translateY(-100%)}
+    .btn-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
 
-}
+    .spinner {
+      width: 19px;
+      height: 19px;
+      border: 2px solid rgba(255,255,255,.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      display: none;
+    }
 
-/* Sticky Download */
+    .loading .spinner {
+      display: block;
+    }
 
-.stickyDownload{
-position:fixed;
-bottom:10px;
-left:10px;
-right:10px;
-z-index:999;
-}
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
-.stickyDownload a{
-display:block;
-background:#22c55e;
-padding:15px;
-border-radius:12px;
-text-align:center;
-font-weight:bold;
-font-size:18px;
-color:white;
-text-decoration:none;
-box-shadow:0 5px 20px rgba(0,0,0,0.4);
-}
+    .download-note {
+      text-align: center;
+      color: #64748b;
+      font-size: 11px;
+      margin-top: 10px;
+    }
 
-/* Download Popup */
+    /* Feature grid */
 
-.popup{
-position:fixed;
-bottom:80px;
-left:15px;
-background:#111827;
-padding:12px 16px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,0.5);
-font-size:14px;
-display:none;
-animation:fadeIn 0.5s;
-}
+    .section {
+      margin-top: 18px;
+    }
 
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(10px);}
-to{opacity:1;transform:translateY(0);}
-}
+    .section-heading {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
 
-/* Footer */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 11px;
+    }
 
-footer{
-text-align:center;
-font-size:12px;
-color:#6b7280;
-margin-top:20px;
-}
+    .feature {
+      padding: 16px;
+      border-radius: 17px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      transition: transform .2s ease, border-color .2s ease;
+    }
 
-</style>
+    .feature:hover {
+      transform: translateY(-3px);
+      border-color: rgba(129,140,248,.28);
+    }
+
+    .feature-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      margin-bottom: 11px;
+      background: rgba(99,102,241,.13);
+      font-size: 18px;
+    }
+
+    .feature strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .feature span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    /* Steps */
+
+    .steps {
+      padding: 19px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+    }
+
+    .step {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+    }
+
+    .step + .step {
+      margin-top: 17px;
+    }
+
+    .number {
+      flex: 0 0 31px;
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(99,102,241,.15);
+      color: #c7d2fe;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .step strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* FAQ */
+
+    .faq {
+      border: 1px solid var(--card-border);
+      border-radius: 15px;
+      background: rgba(255,255,255,.04);
+      overflow: hidden;
+    }
+
+    .faq + .faq {
+      margin-top: 8px;
+    }
+
+    .faq button {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: white;
+      padding: 16px;
+      text-align: left;
+      cursor: pointer;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .faq button span:last-child {
+      color: #818cf8;
+      transition: transform .2s ease;
+    }
+
+    .faq.open button span:last-child {
+      transform: rotate(45deg);
+    }
+
+    .answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+
+    .answer p {
+      padding: 0 16px 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+
+    footer {
+      text-align: center;
+      padding: 26px 10px 10px;
+      color: #64748b;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    /* Sticky CTA */
+
+    .sticky {
+      position: fixed;
+      z-index: 100;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      max-width: 496px;
+      margin: auto;
+      padding: 8px;
+      border-radius: 17px;
+      background: rgba(5,8,22,.78);
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 15px 45px rgba(0,0,0,.5);
+      backdrop-filter: blur(18px);
+    }
+
+    .sticky button {
+      width: 100%;
+      min-height: 48px;
+      border: 0;
+      border-radius: 12px;
+      color: #fff;
+      background: linear-gradient(100deg,#4f46e5,#0891b2);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* Toast */
+
+    .toast {
+      position: fixed;
+      z-index: 200;
+      left: 50%;
+      bottom: 88px;
+      transform: translate(-50%, 20px);
+      width: min(calc(100% - 30px), 430px);
+      padding: 13px 15px;
+      border-radius: 13px;
+      background: rgba(15,23,42,.94);
+      border: 1px solid rgba(255,255,255,.1);
+      color: #e2e8f0;
+      font-size: 13px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    @media (min-width: 700px) {
+      body {
+        padding-top: 40px;
+      }
+
+      .sticky {
+        display: none;
+      }
+
+      .hero-card {
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      h1 {
+        font-size: 31px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+  <div class="glow one"></div>
+  <div class="glow two"></div>
 
-<img src="https://telegram-ads.riyazshaikh.com/wp-content/uploads/2026/03/mtk-rk.avif" class="logo">
+  <main class="container">
 
-<h1 class="title">Kalyan Matka App</h1>
-<p class="subtitle">India’s Trusted Matka Platform</p>
+    <header>
+      <div class="logo-wrap">
+        <img
+          class="logo"
+          src="https://telegram-ads.riyazshaikh.com/wp-content/uploads/2026/03/mtk-rk.avif"
+          alt="App logo"
+        >
+      </div>
 
-<div class="card trust">
-⭐ 5,00,000+ Trusted Users • Instant Withdraw
-</div>
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        READY TO GET STARTED
+      </div>
 
-<div class="card live">
-🔴 Live Users Online: <span id="liveUsers">52253</span>
-</div>
+      <h1>
+        Your next experience
+        <span class="gradient-text">starts here.</span>
+      </h1>
 
-<a href="https://kalyan-matka.online/kalyan.apk" class="download">
-⬇ Download Kalyan Matka App
-</a>
+      <p class="subtitle">
+        Get the app and enjoy a clean, fast and convenient experience
+        right from your device.
+      </p>
+    </header>
 
-<div class="card">
+    <section class="hero-card">
 
-<h3 class="section-title">🎯 Game Rates</h3>
+      <div class="card-label">Quick access</div>
 
-<div class="table-row"><span>Single Digit</span><span class="rate">10 × 100</span></div>
-<div class="table-row"><span>Jodi Digit</span><span class="rate">10 × 1000</span></div>
-<div class="table-row"><span>Single Panna</span><span class="rate">10 × 1500</span></div>
-<div class="table-row"><span>Double Panna</span><span class="rate">10 × 3000</span></div>
-<div class="table-row"><span>Triple Panna</span><span class="rate">10 × 7000</span></div>
-<div class="table-row"><span>Half Sangam</span><span class="rate">10 × 10000</span></div>
-<div class="table-row"><span>Full Sangam</span><span class="rate">10 × 100000</span></div>
+      <h2>Get the app in seconds</h2>
 
-</div>
+      <p>
+        Follow the simple steps below and continue when the download
+        preparation is complete.
+      </p>
 
-<div class="card">
+      <button
+        class="download-btn"
+        id="downloadBtn"
+        type="button"
+      >
+        <span class="btn-content">
+          <span class="spinner"></span>
+          <span id="btnText">Prepare Download</span>
+        </span>
+      </button>
 
-<h3 class="section-title">🔔 Recent Activity</h3>
+      <div class="download-note">
+        Your download will begin after the preparation step.
+      </div>
 
-<div class="activity">
-<div class="activity-list" id="activityList">
+    </section>
 
-<p>+ Ami*** deposited ₹601</p>
-<p>+ Man*** deposited ₹9647</p>
-<p>✔ Ami*** withdrawn ₹24661</p>
-<p>✔ Roh*** withdrawn ₹21308</p>
-<p>✔ Ami*** withdrawn ₹8879</p>
-<p>+ Raj*** deposited ₹1120</p>
-<p>✔ Dev*** withdrawn ₹17890</p>
+    <section class="section">
 
-</div>
-</div>
+      <h2 class="section-heading">Why use the app?</h2>
 
-</div>
+      <div class="features">
 
-<footer>
-© Kalyan Matka | Entertainment Purpose Only
-</footer>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <strong>Quick access</strong>
+          <span>Designed for a smooth and straightforward experience.</span>
+        </div>
 
-</div>
+        <div class="feature">
+          <div class="feature-icon">📱</div>
+          <strong>Mobile friendly</strong>
+          <span>Built to work comfortably across modern mobile devices.</span>
+        </div>
 
-<div class="stickyDownload">
-<a href="https://kalyan-matka.online/kalyan.apk">
-⬇ Download App Now
-</a>
-</div>
+        <div class="feature">
+          <div class="feature-icon">✨</div>
+          <strong>Clean interface</strong>
+          <span>Simple navigation without unnecessary clutter.</span>
+        </div>
 
-<div class="popup" id="downloadPopup"></div>
+        <div class="feature">
+          <div class="feature-icon">🔒</div>
+          <strong>Clear experience</strong>
+          <span>Important actions and information are easy to find.</span>
+        </div>
 
-<script>
+      </div>
+    </section>
 
-/* Live users */
+    <section class="section">
 
-const users=document.getElementById("liveUsers");
+      <h2 class="section-heading">How it works</h2>
 
-setInterval(()=>{
-let num=52000+Math.floor(Math.random()*5000);
-users.innerText=num;
-},2500);
+      <div class="steps">
+
+        <div class="step">
+          <div class="number">1</div>
+          <div>
+            <strong>Start preparation</strong>
+            <p>Tap the button above to begin the short preparation step.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number">2</div>
+          <div>
+            <strong>Wait a few seconds</strong>
+            <p>The button will update automatically when preparation is complete.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number">3</div>
+          <div>
+            <strong>Continue</strong>
+            <p>Use the download button to proceed to the available app file.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section">
+
+      <h2 class="section-heading">Frequently asked</h2>
+
+      <div class="faq">
+        <button type="button">
+          <span>How long does preparation take?</span>
+          <span>＋</span>
+        </button>
+        <div class="answer">
+          <p>
+            The preparation state lasts approximately three seconds before
+            the continue option becomes available.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button type="button">
+          <span>Can I use the page on mobile?</span>
+          <span>＋</span>
+        </button>
+        <div class="answer">
+          <p>
+            Yes. The layout is responsive and optimized for phones,
+            tablets and desktop screens.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button type="button">
+          <span>Where does the button lead?</span>
+          <span>＋</span>
+        </button>
+        <div class="answer">
+          <p>
+            After preparation, the button opens the configured download
+            destination.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <footer>
+      Please review the app and download information before continuing.
+      <br>
+      © 2026 App Download
+    </footer>
+
+  </main>
+
+  <!-- Mobile sticky CTA -->
+  <div class="sticky">
+    <button id="stickyBtn" type="button">
+      Prepare Download
+    </button>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    /*
+      Configure your legitimate download destination here.
+      Replace this URL with the appropriate destination for your app.
+    */
+    const DOWNLOAD_URL = "#";
+
+    const downloadBtn = document.getElementById("downloadBtn");
+    const stickyBtn = document.getElementById("stickyBtn");
+    const btnText = document.getElementById("btnText");
+    const toast = document.getElementById("toast");
+
+    let isReady = false;
+    let isPreparing = false;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2500);
+    }
+
+    function prepareDownload() {
+      if (isPreparing) return;
+
+      if (isReady) {
+        if (DOWNLOAD_URL === "#") {
+          showToast("Please configure the download destination first.");
+          return;
+        }
+
+        window.location.href = DOWNLOAD_URL;
+        return;
+      }
+
+      isPreparing = true;
+
+      downloadBtn.classList.add("loading");
+      downloadBtn.disabled = true;
+
+      btnText.textContent = "Preparing…";
+      stickyBtn.textContent = "Preparing…";
+      stickyBtn.disabled = true;
+
+      let seconds = 3;
+
+      const timer = setInterval(() => {
+        seconds--;
+
+        if (seconds > 0) {
+          btnText.textContent = `Preparing… ${seconds}`;
+          stickyBtn.textContent = `Preparing… ${seconds}`;
+        }
+
+        if (seconds === 0) {
+          clearInterval(timer);
+
+          isPreparing = false;
+          isReady = true;
+
+          downloadBtn.classList.remove("loading");
+          downloadBtn.disabled = false;
+
+          btnText.textContent = "Download Ready →";
+          stickyBtn.textContent = "Download Ready →";
+          stickyBtn.disabled = false;
+
+          showToast("Download is ready to continue.");
+        }
+      }, 1000);
+    }
+
+    downloadBtn.addEventListener("click", prepareDownload);
+    stickyBtn.addEventListener("click", prepareDownload);
 
 
-/* Activity infinite scroll */
+    /* FAQ */
 
-const list=document.getElementById("activityList");
-list.innerHTML+=list.innerHTML;
+    document.querySelectorAll(".faq button").forEach(button => {
 
+      button.addEventListener("click", () => {
 
-/* Download popup notification */
+        const faq = button.parentElement;
+        const answer = faq.querySelector(".answer");
 
-const names=["Rahul","Amit","Rohit","Vikas","Sanjay","Deepak","Ankit","Manish","Ajay"];
-const cities=["Delhi","Mumbai","Lucknow","Patna","Jaipur","Indore","Bhopal","Surat"];
+        const isOpen = faq.classList.contains("open");
 
-const popup=document.getElementById("downloadPopup");
+        document.querySelectorAll(".faq").forEach(item => {
+          item.classList.remove("open");
+          item.querySelector(".answer").style.maxHeight = null;
+        });
 
-function showPopup(){
+        if (!isOpen) {
+          faq.classList.add("open");
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
 
-let name=names[Math.floor(Math.random()*names.length)];
-let city=cities[Math.floor(Math.random()*cities.length)];
+      });
 
-popup.innerText=name+" from "+city+" just downloaded the app";
+    });
+  </script>
 
-popup.style.display="block";
-
-setTimeout(()=>{
-popup.style.display="none";
-},3000);
-
-}
-
-setInterval(showPopup,7000);
-
-</script>
-
-  
 </body>
 </html>
-
-
+```
